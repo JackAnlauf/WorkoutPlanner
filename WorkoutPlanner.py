@@ -91,23 +91,4 @@
 # 
 # =============================================================================
 
-
-print("Hello world")
-
-print("Hello there")
-
-
-print("Git practice number 1")
-
-print("Edit from github")
-
-
-print("Edit from github 2")
-
-
-print ("merge statement 1")
-
-print("I think im on branch A, so this should be seen only in bracnh A")
-
-
-print("I think im on main branch, so this and 'Ithink im on branchA' should be here ")
+print("Ready to work!")
