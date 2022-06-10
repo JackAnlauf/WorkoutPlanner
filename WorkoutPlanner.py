@@ -45,15 +45,12 @@
 # Subprograms: (more to come)
 #     Initial user info program.
 #         -demographics
-#         -lifting records
-#     Split program.
-#         this program contains different types of splits (PPL, totalbody,etc)
-#         accounts for availability 
+#         -lifting records and goals 
 #     Exercises program.
 #         -accounts for each exercises differences, strength curves, increments
 #         required equipment, injury risk, etc. 
 #     Preworkout questionaire program
-#         -Asks about energy, gym type, split, etc
+#         -Asks about energy, gym type, muscles, etc
 #         -adjusts things accordingly
 #     Workout Printout
 #         -Prints warmup exercises, workout, postworkout
@@ -81,14 +78,43 @@
     
 # =============================================================================
 # To Do List:
-#     -Figure out github
 #     -Get a more concrete writeup of program
 #     -Learn how Excel interacts with Python
 #     -How to graph
-#     -Create simple test cases for "Bob"
-#     -lots to do
 # 
 # 
 # =============================================================================
 
 print("Ready to work!")
+
+
+
+
+
+
+Simpler version?
+    A program that tracks your lifting data, analyzes it, recommends 
+    (in terms of numbers) reps/sets if trajectory of data is decelerating (i.e
+    your progress for a given exercise is slowing down, maybe it recommends
+    xyz?), known as "hitting a plateu". it tracks data, goal, personal record
+    
+
+    reps/sets determined by weight (heavy weight, high sets low weight maybe)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
