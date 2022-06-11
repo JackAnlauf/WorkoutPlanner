@@ -157,35 +157,91 @@ print(data)
 
 
 
-x = "Day " + str(len(data.index)-1)
+#creates a new row, each key is a column name and the value is the new row 
+#value, if a key is not given, it defaults to NaN
+#x = "Day " + str(len(data.index)-1)
+#new_row = {"Records":x}
+#data = data.append(new_row,ignore_index = True)
 
-#new_row = {"Records":x} #"benchpress": 250, "squat":350,"deadlift":450}
+
+#or to edit a row... (in this case the last row)
+#data.loc[len(data.index)-1] = {"Records":x, "benchpress": 250, "squat":350,
+                               #"deadlift":450, "row": 150}
 
 
+
+
+
+#creates a column with default values of 0 for each row index 
 #data = data.assign(row=([0]*(len(data.index))))
-
-
-#print(data)
-#data.loc[0,"deadlift"] =200
-
-
-
 #data = data.assign(row=[150,180,140,145])
 
 
-#data = data.append(new_row,ignore_index = True)
 
+
+
+#finds a specifc data point row x column and can be changed
+#data.loc[0,"deadlift"] =200
 #print(data["squat"].min())
 
-data.loc[5,"squat"] = 200
 
 
-print(data) 
 
+#shows a column of data with non zero data points starting at Day 1
+#e = "deadlift"
+#q = ((data[e].dropna(how="any"))[2:])
+#print (q)
+
+
+
+
+#shows the next day that data will be added to for a given workout
+#from this you can find index of that row for necessary calculations/additions
+#y = [i for i in q]
+#print (y)
+#f = len(y)+1
+#print("day {} is the next day to add data for {}".format(f,e))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# if filename is same as og file name, it updates, else, creates a new file
 #data.to_excel("workoutPlannerdata.xlsx",index = False)
 
 
 
+
+
+
+#notes
+#as of now, the way i have this working is each column of exercises are strictly
+#independent of the others. So when you want to analyze an exercise, you
+#isolate the column and do some methods to turn it into data.
+#Each exercise data point is associated with a "day 1, day 2 etc" but this 
+#is not linear, should probably rename it. BUt the way i see it, each  "day 1"
+#for benchpress is not the literal same day or session for squats. Just because
+#they share a row doesnt mean anything. So a day 1 and a day 2 for bench could
+# be 3 days but it could be 10 days for a squat.
+
+#I have it this way at the moment because this is the best understanding of
+#pandas syntax at the moment. 
 
 
 
