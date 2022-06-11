@@ -91,58 +91,98 @@ print("Ready to work!")
 
 
 
-Simpler version?
-    A program that tracks your lifting data, analyzes it, recommends 
-    (in terms of numbers) reps/sets if trajectory of data is decelerating (i.e
-    your progress for a given exercise is slowing down, maybe it recommends
-    xyz?), known as "hitting a plateu". it tracks data, goal, personal record
-    
+# =============================================================================
+# Simpler version?
+#     A program that tracks your lifting data, analyzes it, recommends 
+#     (in terms of numbers) reps/sets if trajectory of data is decelerating (i.e
+#     your progress for a given exercise is slowing down, maybe it recommends
+#     xyz?), known as "hitting a plateu". it tracks data, goal, personal record
+#     
+# 
+# 
+#     programs:
+#         
+#         
+#         create user personal database
+#             create users own database according to a template?
+#         add exercises  
+#             program that adds exercise with data to the excel spreadsheet
+#             data:
+#                 PR = personal record x number of reps
+#                 Goal = goal x number of reps 
+#                 Recent = most recent weight for reps
+#                     this is added here once and updated to be max of 
+#                     day 1, day 2 etc
+#             
+#                 
+#         add data
+#             to add a single bit of data, usually after a workout
+#             ex: 
+#                 bench press
+#                 day 1 weight
+#                 day 1 reps
+#             remind user that weight could be body weight x reps (or time)
+#             because some exercises are bodyweight for time
+#                 
+#         data analysis 
+#             analyzes data (for a specific exercise)to find: 
+#                 best fitted line(growth rate?), projections, 
+#                 if certain growth rate, recommend recommendation:
+#                 requies atleast x datapoints
+#                 
+#         recommendation 
+#             activated at request, calculates alternative sets,reps,weight for 
+#             exercise. It also adds a new exercise that is named "'exercise'alt" 
+#             or somehting like that
+#             reps/sets determined by old exercise recent data
+#             (like take the last three and average it and reduce by 30% and 
+#              increase reps )
+#             continue to track this alt exercise from then on until indicated
+#             otherwise by user
+# 
+# =============================================================================
+
+# =============================================================================
+# Below is just some practice with pandas
+# but it could lead to actual code who knows
+# =============================================================================
+import pandas as pd
+
+import numpy as np
 
 
-    programs:
-        
-        
-        create user personal database
-            create users own database according to a template?
-        add exercises  
-            program that adds exercise with data to the excel spreadsheet
-            data:
-                PR = personal record x number of reps
-                Goal = goal x number of reps 
-                Recent = most recent weight for reps
-                    this is added here once and updated to be max of 
-                    day 1, day 2 etc
-            
-                
-        add data
-            to add a single bit of data, usually after a workout
-            ex: 
-                bench press
-                day 1 weight
-                day 1 reps
-            remind user that weight could be body weight x reps (or time)
-            because some exercises are bodyweight for time
-                
-        data analysis 
-            analyzes data (for a specific exercise)to find: 
-                best fitted line(growth rate?), projections, 
-                if certain growth rate, recommend recommendation:
-                requies atleast x datapoints
-                
-        recommendation 
-            activated at request, calculates alternative sets,reps,weight for 
-            exercise. It also adds a new exercise that is named "'exercise'alt" 
-            or somehting like that
-            reps/sets determined by old exercise recent data
-            (like take the last three and average it and reduce by 30% and 
-             increase reps )
-            continue to track this alt exercise from then on until indicated
-            otherwise by user
+data = (pd.read_excel("WorkoutPlannerdata.xlsx", sheet_name="Sheet1"))
+
+print(data)
 
 
 
+x = "Day " + str(len(data.index)-1)
+
+#new_row = {"Records":x} #"benchpress": 250, "squat":350,"deadlift":450}
 
 
+#data = data.assign(row=([0]*(len(data.index))))
+
+
+#print(data)
+#data.loc[0,"deadlift"] =200
+
+
+
+#data = data.assign(row=[150,180,140,145])
+
+
+#data = data.append(new_row,ignore_index = True)
+
+#print(data["squat"].min())
+
+data.loc[5,"squat"] = 200
+
+
+print(data) 
+
+#data.to_excel("workoutPlannerdata.xlsx",index = False)
 
 
 
