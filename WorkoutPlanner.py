@@ -87,7 +87,6 @@
 
 
 
-print("Ready to work!")
 
 
 
@@ -103,16 +102,56 @@ print("Ready to work!")
 #     programs:
 #         
 #         
+
+        # new user or old user
+           # -ask if new or old
+            #-if new, call create new program
+            #-#if old, enter name
+            #-use that name that should match one in a list of names
+            #-that name should be put into a link to old excel
+            #-create instance of that 
+            
+         #example   
+ #           "data = (pd.read_excel("{}workoutdata.xlsx".format(NAME),sheet_name
+#                                                 ="Sheet1"
+
 #         create user personal database
 #             create users own database according to a template?
+
+            #Tasks:
+                #-Enter user name
+                #-create a new data frame
+                  #  -default indexed (1,2,3 etc)
+                  #  -the first column will be "Record  PR   GOAL"
+                #-give the file a name depending on user name
+                #-commit that dataframe to an excel spreadsheet located (somewhere?)
+                
+
 #         add exercises  
 #             program that adds exercise with data to the excel spreadsheet
 #             data:
-#                 PR = personal record x number of reps
-#                 Goal = goal x number of reps 
-#                 Recent = most recent weight for reps
-#                     this is added here once and updated to be max of 
-#                     day 1, day 2 etc
+#                 PR = personal 
+#                 Goal = goal 
+
+
+        
+              # Tasks:
+               #    -ask for exercise name (check if already there or not)
+                #   -create column (default values 0 when needed)
+                 #  -ask for PR 
+                  # -add PR (if None, right NA or something like that)
+                   #-ask for Goal
+                   #-add GOAL
+                   #-ask if there is previous data/days to add
+                   #-add accordingly (add data program below)
+
+
+
+
+
+
+
+
 #             
 #                 
 #         add data
@@ -120,18 +159,65 @@ print("Ready to work!")
 #             ex: 
 #                 bench press
 #                 day 1 weight
-#                 day 1 reps
-#             remind user that weight could be body weight x reps (or time)
-#             because some exercises are bodyweight for time
+            
+                #Tasks
+                    #-ask for exercise 
+                    #-ask for weight
+                    #-find next availible row with NaN to add data or 
+                   #     make a new row entirely with this weight
+                   # - add the weight to that location
+                   #-if weight is greater than PR, update PR
+                   #announce PR change
+                   #if wieght is greater or equal to Goal,anounce
+                   #ask for new goal
+                   #set new goal
+
+
 #                 
 #         data analysis 
 #             analyzes data (for a specific exercise)to find: 
 #                 best fitted line(growth rate?), projections, 
 #                 if certain growth rate, recommend recommendation:
 #                 requies atleast x datapoints
+
+#            -Tasks
+ #                   -ask for exercise to analyze
+  #                  -isolate the column
+   #                 -printout the goal and PR rows
+    #                -convert rest of column into object that is usable
+     #                       (comprehension for example?)
+      #                      also no NaN values allowed
+       #                     each index of this new object should be 
+        #                    parallel to the index of the dataframe itself
+         #                   so object[0] is day 1 object[5] is day 4 etc
+          #          -do some data analysis of this 
+         #                 -growth
+          #                -projections
+           #               -compare to PR/Goal
+            #              -???
+           #         -if certain analysis markers are there, invoke recommendation
+            #        -printout analysis in laymens terms
+             #       -ask if recommendation is requested (if so, invoke)
+                    
+
+
+
 #                 
 #         recommendation 
-#             activated at request, calculates alternative sets,reps,weight for 
+
+            #tasks
+                #-input exercise
+                #-find max of data (day 1,day 2,....)
+                #-print a message saying, set your weight to 60% of max
+                 #       and double your reps per set for the next (5? sessions)
+                #-creates a new exercise to track called "(exercise) alt"
+               #     -with PR = PR and Goal = old goal * 90%
+               #if goal is met, delete alt version
+               
+              #this section will require research on lifting for correct strat
+
+
+#             activated at request, calculates alternative weight for 
 #             exercise. It also adds a new exercise that is named "'exercise'alt" 
 #             or somehting like that
 #             reps/sets determined by old exercise recent data
@@ -139,6 +225,12 @@ print("Ready to work!")
 #              increase reps )
 #             continue to track this alt exercise from then on until indicated
 #             otherwise by user
+
+
+                
+
+
+
 # 
 # =============================================================================
 
@@ -165,7 +257,7 @@ print(data)
 
 
 #or to edit a row... (in this case the last row)
-#data.loc[len(data.index)-1] = {"Records":x, "benchpress": 250, "squat":350,
+#data.loc[len(data.index)-1] = {"Records":"x", "benchpress": 210, "squat":360,
                                #"deadlift":450, "row": 150}
 
 
@@ -186,6 +278,10 @@ print(data)
 
 
 
+#this gives a record and at what date of a given exercise
+#print(str(data["benchpress"][0]) +" pounds on " + str(data["Date/Workouts"][0]))
+
+
 
 #shows a column of data with non zero data points starting at Day 1
 #e = "deadlift"
@@ -201,21 +297,6 @@ print(data)
 #print (y)
 #f = len(y)+1
 #print("day {} is the next day to add data for {}".format(f,e))
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
